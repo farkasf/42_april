@@ -2,7 +2,7 @@ import requests
 POKEAPI_WEB = "https://pokeapi.co/api/v2"
 
 def import_poke_abilities(poke_name):
-    poke_web = POKEAPI_WEB + "pokemon/" + poke_name.lower()
+    poke_web = POKEAPI_WEB + "/pokemon/" + poke_name.lower()
     download = requests.get(poke_web)
 
     if download.status_code == 200:
@@ -20,6 +20,6 @@ if poke_abilities:
     print(f"Name: {poke_name.title()}")
     print(f"Abilities:")
     for ability in poke_abilities:
-        print("- " + ability.title())
+        print("– " + ability.title())
 else:
     print(f"Could not retrieve abilities of {poke_name.title()}. Check the name and try again.")
